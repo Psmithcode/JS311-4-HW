@@ -7,17 +7,17 @@ const getContacts = (req, res) => {
 
 const getContact = (req, res) => {
   let id = req.params.id;
-  let item = database[i];
+  let item;
   for (let i = 0; i < database.length; i++) {
     if (id == database[i].id) {
-      item = database[i];
+      let item = database[i];
       break;
     }
   }
   res.send(item);
 };
 
-const createContact = (req, res) => {
+const createContact = function (req, res) {
   let payload = req.body;
   let name = payload.name;
   let occupation = payload.occupation;
